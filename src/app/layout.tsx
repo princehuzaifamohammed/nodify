@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Sulphur_Point } from "next/font/google";
 import "./globals.css";
+import { TRPCReactProvider } from "@/trpc/client";
 
 const sulphur = Sulphur_Point({
   subsets: ["latin"],
@@ -19,7 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${sulphur.className} antialiased`}>{children}</body>
+      <body className={`${sulphur.className} antialiased`}>
+        <TRPCReactProvider>{children}</TRPCReactProvider>
+      </body>
     </html>
   );
 }
